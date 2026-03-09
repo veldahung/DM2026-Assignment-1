@@ -1,8 +1,8 @@
 import numpy as np
 from model.utils import onehot_array
 from sklearn.metrics import (
-    accuracy_score, precision_score, recall_score, f1_score,
-    roc_auc_score, confusion_matrix
+    accuracy_score, precision_score, recall_score, f1_score, confusion_matrix,
+    mean_squared_error, mean_absolute_error
 )
 import matplotlib.pyplot as plt
 
@@ -52,5 +52,22 @@ def evaluate_binary_classifier(y_true, y_pred, title='Model Evaluation'):
 
     plt.tight_layout()
     plt.show()
+
+    return metrics
+
+def evaluate_linear_regression(y_true, y_pred, title='Linear Regression Evaluation'):
+
+    y_true = np.asarray(y_true).ravel()
+    y_pred = np.asarray(y_pred).ravel()
+
+    metrics = {
+        'MSE': 'TODO: use sklearn.metrics to compute MSE',
+        'MAE': 'TODO: use sklearn.metrics to compute MAE',
+        'RMSE': 'TODO: use sklearn.metrics and numpy to compute RMSE',
+    }
+
+    print(f"=== {title} ===")
+    for name, value in metrics.items():
+        print(f'{name:>10}: {value:.4f}')
 
     return metrics
